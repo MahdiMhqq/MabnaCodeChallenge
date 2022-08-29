@@ -1,0 +1,50 @@
+// ----------- Font Family
+$font-persian: "Vazirmatn", "Serif";
+
+$text-main: #272725;
+$light-text: #fff;
+
+$black: #1B1B1B;
+$white: #fff;
+$shimgray: #e5e5e5;
+$lllgray: #f4f5f6;
+$llgray: #F3F4F5;
+$lgray: #d1d7d3;
+$gray: #c2ccc6;
+$background: #e7e7e7;
+//primary
+$lprimary: #282775;
+$primary: #04035e;
+//secondary
+$lsecondary: #f7b229;
+$secondary: #f7ad19;
+//success
+$lllsuccess: #68dd89;
+$llsuccess: #3fd468;
+$lsuccess: #2fd15c;
+$success: #2bc255;
+//danger
+$llldanger: #dc6273;
+$lldanger: #d2364c;
+$ldanger: #c92c42;
+$danger: #b8293d;
+//warning
+$lllwarning: #f6a859;
+$llwarning: #f4912e;
+$lwarning: #f3881c;
+$warning: #f27f0c;
+//info
+$lllinfo: #7dcef6;
+$llinfo: #5bc1f3;
+$linfo: #4ebcf2;
+$info: #40b7f2;
+$progressBar: rgb(0, 21, 255);
+// ---------- BOOTSTRAP CUSTOM
+// ---- MEDIA QUIRIES BREAKPOINTS
+/* breakpoints bootstrap */
+$breakpoint-xs-custom: 0;
+$breakpoint-sm-custom: 576px;
+$breakpoint-md-custom: 768px;
+$breakpoint-lg-custom: 1024px;
+$breakpoint-xl-custom: 1200px;
+$breakpoint-xxl-custom: 1400px;

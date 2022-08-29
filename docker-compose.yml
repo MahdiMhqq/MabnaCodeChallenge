@@ -1,0 +1,20 @@
+version: "3"
+services:
+  client:
+    build: "./client"
+    ports:
+      - "3000:3000"
+    environment:
+      - API_PROXY_URL=http://0.0.0.0:3080
+      - CAPTCHA_SITE_KEY=6LelsVofAAAAALI9CuMyKSlujklOk7PfA3dW9svg
+  server:
+    restart: unless-stopped
+    build: "./server"
+    ports:
+      - "3080:3080"
+    environment:
+      - FRONT_PROXY_PORT=3080
+      - FRONT_PROXY_HOST=0.0.0.0
+      - API_SERVICE_URL=http://162.223.90.105
+      - LOGIN_PATH=/dashboard/api/v1/login/
+      - CAPTCHA_PRIVATE_KEY=6LelsVofAAAAADyW2RQMO9oQINGq-Q7-1eBMFYmy

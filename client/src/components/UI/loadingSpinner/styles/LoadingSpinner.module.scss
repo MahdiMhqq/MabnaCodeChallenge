@@ -1,0 +1,34 @@
+@import "assets/styles/helpers/variables";
+
+.loadingSpinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .spinnerIcon {
+      width: 2rem;
+      height: 2rem;
+      box-sizing: border-box;
+      border: solid 3px transparent;
+      border-top-color: lighten($light-text, 17%);
+      border-left-color: rgba(lighten($light-text, 17%), 0.6);
+      border-radius: 50%;
+      -webkit-animation: SpinnerLoad 400ms linear infinite;
+      animation: SpinnerLoad 400ms linear infinite;
+    }
+  }
+  @-webkit-keyframes SpinnerLoad {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @keyframes SpinnerLoad {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
