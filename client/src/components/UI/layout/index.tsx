@@ -63,7 +63,9 @@ function Layout({
         withSearch={withSearch}
         customClass=""
       />
-      <div className="px-6 py-4 min-h-screen bg-background">
+      <div
+        className={`px-6 py-4 min-h-screen bg-background`}
+      >
         {loading && (
           <>
             <div
@@ -72,7 +74,7 @@ function Layout({
             <div
               className={`block fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1501]`}
             >
-              <LoadingSpinner width="2rem" color="#04035e" />
+              <LoadingSpinner width="2rem" color="#1378A6" />
             </div>
           </>
         )}

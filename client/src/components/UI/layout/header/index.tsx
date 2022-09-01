@@ -19,13 +19,13 @@ function Header({
 }: HeaderProps) {
   return (
     <header
-      className={`px-4 py-3 flex items-center justify-between bg-primary ${
+      className={`px-4 py-3 flex items-center justify-between gap-x-12 bg-primary ${
         customClass ?? ""
       }`}
     >
       <h3 className="text-base text-white font-semibold">{title}</h3>
       {withSearch && typeof search !== 'undefined' && setSearch && (
-        <SearchBar search={search} setSearch={setSearch} customClass={""} />
+        <SearchBar search={search} setSearch={setSearch} customClass={"grow"} />
       )}
     </header>
   );

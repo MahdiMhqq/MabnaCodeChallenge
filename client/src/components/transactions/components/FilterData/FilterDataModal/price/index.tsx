@@ -53,7 +53,7 @@ function Price({ formData, setFormData }: PriceProps) {
           thousandSeparator={true}
           suffix={" ریال"}
           //InputWraped Props
-          styleClass={``}
+          customClass={``}
           type="text"
           label="از"
           name="PriceStartNumber"
@@ -73,7 +73,7 @@ function Price({ formData, setFormData }: PriceProps) {
           thousandSeparator={true}
           suffix={" ریال"}
           //InputWraped Props
-          styleClass={``}
+          customClass={``}
           type="text"
           label="تا"
           name="PriceEndNumber"

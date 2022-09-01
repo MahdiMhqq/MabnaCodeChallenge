@@ -25,7 +25,8 @@
 /* Fancy blur effect */
 #nprogress .peg {
   width: 100%;
-  box-shadow: 0 0 0.3125rem rgba($progressBar, 0.1), 0.3125rem 0 0.625rem rgba($progressBar, 0.3),
-    0.9375rem 0 1.25rem rgba($progressBar, 0.7), 1.875rem 0 2.5rem rgba($progressBar, 1);
+  box-shadow: 0 0 0.3125rem rgba($info, 0.1),
+    0.3125rem 0 0.625rem rgba($info, 0.3), 0.9375rem 0 1.25rem rgba($info, 0.7),
+    1.875rem 0 2.5rem rgba($info, 1);
   transform: rotate(0) translate(0, 0);
 }

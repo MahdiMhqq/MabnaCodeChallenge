@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import icons from "utils/fonticons";
 
-import { highLightSearch, onSearchChange } from "./services";
+import { onSearchChange } from "./services";
 
 import usePrevious from "hooks/usePrevious";
 
@@ -13,14 +13,6 @@ interface SearchBarProps {
 }
 
 function SearchBar({ search, setSearch, customClass }: SearchBarProps) {
-  //PREVIOUS VALUE
-  const prevSearchQuery = usePrevious(search);
-
-  // For highlighting searched value in rows
-  useEffect(() => {
-    highLightSearch(search, prevSearchQuery);
-  }, [search]);
-
   return (
     <div className={`relative ${customClass ?? ""}`}>
       <label
@@ -32,22 +24,24 @@ function SearchBar({ search, setSearch, customClass }: SearchBarProps) {
       <input
         id="SearchBar"
         formNoValidate={true}
-        className={`w-full py-2 pr-8 pl-4 rounded-md bg-transparent border border-gray text-base leading-6 text-white outline-none transition duration-300  ${
-          search !== "" ? "" : "focus:border-info"
-        }`}
+        className={`w-full py-2 pr-8 pl-4 rounded-md bg-lprimary border border-lprimary text-base leading-6 text-white outline-none transition duration-300 focus:border-gray`}
         value={search}
         onChange={(e) => {
           onSearchChange(e.target.value, setSearch);
         }}
+        placeholder={"جستجو نام نماد، نام شرکت"}
+        autoComplete={"off"}
       />
       {search !== "" && (
         <span
-          className="h-4 w-4 cursor-pointer absolute left-0 top-1/2 -translate-y-1/2"
+          className="h-8 w-8 absolute left-2 top-1/2 -translate-y-1/2 cursor-pointer group"
           onClick={() => {
             setSearch("");
           }}
         >
-          {icons.xmark("h-4 w-4 fill-danger")}
+          {icons.xmark(
+            "h-8 w-8 fill-danger group-hover:fill-ldanger transition duration-100"
+          )}
         </span>
       )}
     </div>
