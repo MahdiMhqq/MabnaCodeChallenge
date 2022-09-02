@@ -35,4 +35,4 @@ COPY --from=build-target /usr/src/app/client/node_modules node_modules
 COPY --from=build-target /usr/src/app/client/.next .next
 COPY --from=build-target /usr/src/app/client/public public
 
-CMD ["next", "start"]
+CMD ["npm","run","start"]

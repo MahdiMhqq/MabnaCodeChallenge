@@ -96,3 +96,12 @@ mark {
     opacity: 50%;
   }
 }
+
+@media screen and (max-width: $breakpoint-md-custom) {
+  .virtualList {
+    width: calc(100vw - 24px) !important;
+  }
+  .shimmer {
+    width: 100%;
+  }
+}

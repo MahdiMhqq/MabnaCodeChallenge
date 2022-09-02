@@ -7,11 +7,7 @@ interface AssetsEntity {
 
 interface AssetValue {
   title: string;
-  english_title: string;
-  short_title?: string;
-  english_short_title?: string;
   trade_symbol: string;
-  english_trade_symbol: string;
 }
 
 interface AssetMeta {
@@ -33,7 +29,7 @@ export interface AssetDataResponse {
   data: AssetInterface[];
 }
 
-interface TradeValue {
+export interface TradeValue {
   open_price: number;
   high_price: number;
   low_price: number;
@@ -58,4 +54,29 @@ export interface TradesDataResponse {
   data: TradeInterface[];
 }
 
+export interface BidasksOrder {
+  ask_count: number;
+  ask_price: number;
+  ask_volume: number;
+  bid_count: number;
+  bid_price: number;
+  bid_volume: number;
+  order_rank: number;
+}
 
+interface BidaskValue {
+  end_date_time: string;
+  start_date_time: string;
+  orders: BidasksOrder[]
+}
+export interface BidAskInterface {
+  entity: AssetsEntity;
+  type: string;
+  id: string;
+  meta: AssetMeta;
+  value: BidaskValue;
+}
+
+export interface BidAskDataResponse {
+  data: BidAskInterface[];
+}

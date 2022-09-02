@@ -1,4 +1,4 @@
-export const formatPrice = (price: string | number | null) => {
+export const formatPrice = (price: string | number | null | undefined) => {
   return price
     ? e2p(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
     : "-";

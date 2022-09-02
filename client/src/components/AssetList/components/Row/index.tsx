@@ -7,6 +7,7 @@ import { e2p, formatPrice } from "utils/global";
 import { highLightSearch } from "./services";
 
 import usePrevious from "hooks/usePrevious";
+import Link from "next/link";
 
 interface RowInterface extends ListChildComponentProps<AssetFullInfo[]> {
   search: string;
@@ -32,29 +33,38 @@ const Row = ({ index, style, data, isScrolling, search }: RowInterface) => {
         className="flex items-center justify-between gap-x-3 h-11 rowData"
         ref={rowRef}
       >
-        {isScrolling ? (
-          <>
-            <span className="w-1/6 flex items-center">
-              <span className="shimmer"></span>
-            </span>
-            <span className="w-1/3 flex items-center">
-              <span className="shimmer"></span>
-            </span>
-            <span className="w-1/5 flex items-center">
-              <span className="shimmer"></span>
-            </span>
-            <span className="grow flex items-center">
-              <span className="shimmer"></span>
-            </span>
-          </>
-        ) : (
-          <>
-            <span className="w-1/6 rtl truncate">{e2p(rowData?.trade_symbol)}</span>
-            <span className="w-1/3 rtl truncate">{e2p(rowData?.short_title ?? "")}</span>
-            <span className="w-1/5">{formatPrice(rowData?.close_price)}</span>
-            <span className="grow">{formatPrice(rowData?.volume)}</span>
-          </>
-        )}
+        <span className="w-1/3 sm:w-1/6 rtl truncate">
+          {isScrolling ? (
+            <span className="shimmer"></span>
+          ) : (
+            <Link href={`/assets/${rowData?.id}`} passHref>
+              <a className="font-bold text-info hover:text-linfo cursor-pointer transition duration-200">
+                {e2p(rowData?.trade_symbol)}
+              </a>
+            </Link>
+          )}
+        </span>
+        <span className="hidden sm:block w-1/3 rtl truncate">
+          {isScrolling ? (
+            <span className="shimmer"></span>
+          ) : (
+            e2p(rowData?.title ?? "")
+          )}
+        </span>
+        <span className="w-1/3 sm:w-1/5 truncate">
+          {isScrolling ? (
+            <span className="shimmer"></span>
+          ) : (
+            formatPrice(rowData?.close_price)
+          )}
+        </span>
+        <span className="grow w-1/3 sm:w-[30%] truncate">
+          {isScrolling ? (
+            <span className="shimmer"></span>
+          ) : (
+            formatPrice(rowData?.volume)
+          )}
+        </span>
       </div>
       <hr className="border-dgray" />
     </div>

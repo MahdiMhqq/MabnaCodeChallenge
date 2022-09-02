@@ -10,7 +10,7 @@
     "preinstall": "npx npm-force-resolutions",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "PORT=4000 && next start",
     "lint": "next lint"
   },
   "dependencies": {

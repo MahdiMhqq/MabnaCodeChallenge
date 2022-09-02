@@ -9,17 +9,18 @@
  * ---------------------------------------------------------------
  */
 
-import { AssetDataResponse, TradesDataResponse } from "./data-contracts";
+import {
+  AssetDataResponse,
+  BidAskDataResponse,
+  TradesDataResponse,
+} from "./data-contracts";
 
 import { HttpClient, RequestParams } from "./http-client";
 
 export class API<
   SecurityDataType = unknown
 > extends HttpClient<SecurityDataType> {
-  
-  getAllAssets = (
-    params: RequestParams = {}
-  ) => {
+  getAllAssets = (params: RequestParams = {}) => {
     return this.request<AssetDataResponse, any>({
       path: `/assets`,
       method: "GET",
@@ -29,11 +30,40 @@ export class API<
     });
   };
 
-  getAllTrades = (
-    params: RequestParams = {}
-  ) => {
+  getAsset = (query: { assetId: string }, params: RequestParams = {}) => {
+    return this.request<AssetDataResponse, any>({
+      path: `/assets/${query.assetId}`,
+      method: "GET",
+      query: query,
+      secure: true,
+      format: "json",
+      ...params,
+    });
+  };
+
+  getAllTrades = (params: RequestParams = {}) => {
     return this.request<TradesDataResponse, any>({
       path: `/trades`,
+      method: "GET",
+      secure: true,
+      format: "json",
+      ...params,
+    });
+  };
+
+  getTrade = (query: { assetId: string }, params: RequestParams = {}) => {
+    return this.request<TradesDataResponse, any>({
+      path: `/trades?asset_id=${query.assetId}`,
+      method: "GET",
+      secure: true,
+      format: "json",
+      ...params,
+    });
+  };
+
+  getBidAsk = (query: { assetId: string }, params: RequestParams = {}) => {
+    return this.request<BidAskDataResponse, any>({
+      path: `/bidasks?asset_id=${query.assetId}`,
       method: "GET",
       secure: true,
       format: "json",
